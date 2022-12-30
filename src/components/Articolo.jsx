@@ -1,25 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import data from '../data'
 
+const getThemeFromLocalStorage = () => {
+    if(localStorage.getItem("theme")){
+        return localStorage.getItem("theme");
+    } else {
+        return "dark-mode";
+    }
+}
+
 const Articolo = () => {
-    const [theme, setTheme] = useState("dark-mode");
+    const [theme, setTheme] = useState(getThemeFromLocalStorage());
 
     const switchTheme = () => {
         if(theme === "dark-mode"){
             setTheme("light-mode")
-            localStorage.setItem("theme", "light-mode");
         } else {
             setTheme("dark-mode");
-            localStorage.setItem("theme", "dark-mode");
         }
     }
 
     useEffect( () => {
-        if(!!localStorage.getItem("theme")){
-            document.documentElement.className = localStorage.getItem("theme");
-        } else {
-            document.documentElement.className = theme;
-        }
+        document.documentElement.className = theme;
+
+        localStorage.setItem("theme", theme);
     }, [theme])
 
     return (
