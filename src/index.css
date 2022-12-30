@@ -1,0 +1,44 @@
+.light-mode{
+    --clr-bg: #efefef;
+    --clr-text: #222;
+    --clr-primary: rgb(56, 146, 194);
+    --clr-card: #eeeeee;
+}
+
+.dark-mode {
+    --clr-bg: #111;
+    --clr-text: #d4d3d3;
+    --clr-primary: #df372b;
+    --clr-card: #272724;
+}
+
+body{
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+}
+
+.my-btn{
+    background-color: var(--clr-primary);
+    color: var(--clr-text);
+}
+
+.my-btn:hover{
+    color: var(--clr-primary);
+    background-color: var(--clr-text);
+}
+
+/* CARD */
+.card{
+    background-color: var(--clr-card);
+    color: var(--clr-text);
+}
+.my-title::after{
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-color: var(--clr-primary);
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
